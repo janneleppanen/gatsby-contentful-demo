@@ -5,16 +5,18 @@ import Bio from "../components/bio";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { rhythm, scale } from "../utils/typography";
+import Img from "gatsby-image";
 
 class BlogPostContentfulTemplate extends React.Component {
   render() {
-    const post = this.props.data.contnetfulPost;
+    const post = this.props.data.contentfulPost;
     const siteTitle = this.props.data.site.siteMetadata.title;
     const { previous, next } = this.props.pageContext;
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title={post.title} description={post.subtitle} />
+        <Img fluid={post.image.fluid} />
         <h1>{post.title}</h1>
 
         <div
@@ -69,12 +71,17 @@ export const pageQuery = graphql`
         author
       }
     }
-    contnetfulPost(slug: { eq: $slug }) {
+    contentfulPost(slug: { eq: $slug }) {
       title
       subtitle
       author
+      image {
+        fluid {
+          ...GatsbyContentfulFluid
+        }
+      }
       content {
-        childContenfulRichText {
+        childContentfulRichText {
           html
         }
       }

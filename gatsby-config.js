@@ -6,12 +6,12 @@ if (process.env.NODE_ENV !== "production") {
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
-    author: `Kyle Mathews`,
+    title: `My Gatsby blog with Contentful`,
+    author: `Janne`,
     description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    siteUrl: ``,
     social: {
-      twitter: `kylemathews`
+      twitter: `janneleppanen`
     }
   },
   plugins: [
